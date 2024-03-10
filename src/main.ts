@@ -1,4 +1,5 @@
 import './style.css'
+import {Game} from './modules/Game'
 
 addEventListener('load', main)
 
@@ -10,14 +11,16 @@ function main() {
   canvas.height = 720
 
   let lastTime = 0
+  const game = new Game(canvas.width, canvas.height)
 
   function animate(timeStamp: number) {
     const deltaTime = timeStamp - lastTime
     lastTime = timeStamp
-    ctx.fillStyle = 'black'
-    ctx.strokeRect(0, 0, canvas.width, canvas.height)
 
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+    game.update(deltaTime)
+    game.draw(ctx)
 
     requestAnimationFrame(animate)
   }
