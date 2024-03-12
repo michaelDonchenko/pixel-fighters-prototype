@@ -1,9 +1,7 @@
 export class Game {
   constructor(public width: number, public height: number) {}
 
-  update(deltaTime: number) {
-    console.log(deltaTime)
-  }
+  update(deltaTime: number) {}
 
   draw(ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = 'black'
